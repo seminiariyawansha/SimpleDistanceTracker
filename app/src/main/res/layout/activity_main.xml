@@ -1,36 +1,116 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:background="#F5F6FA">
 
-    <Button
+    <!-- Header -->
+    <View
+        android:id="@+id/headerBg"
+        android:layout_width="0dp"
+        android:layout_height="180dp"
+        android:background="@drawable/header_gradient"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Distance Tracker"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@id/headerBg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/headerBg"
+        android:layout_marginStart="24dp" />
+
+    <!-- Result Card -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/resultCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="@color/card_background"
+        app:layout_constraintTop_toTopOf="@id/headerBg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/headerBg"
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/tvStart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Start: not set"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tvEnd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="End: not set"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp"
+                android:layout_marginTop="10dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#E5E7EB"
+                android:layout_marginTop="14dp"
+                android:layout_marginBottom="14dp" />
+
+            <TextView
+                android:id="@+id/tvDistance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Distance: -- m"
+                android:textColor="@color/gradient_start"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Buttons -->
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnSetStart"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Set Start Point" />
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:text="Set Start Point"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        app:cornerRadius="14dp"
+        app:backgroundTint="@color/gradient_start"
+        app:layout_constraintTop_toBottomOf="@id/resultCard"
+        app:layout_constraintStart_toStartOf="@id/resultCard"
+        app:layout_constraintEnd_toEndOf="@id/resultCard"
+        android:layout_marginTop="28dp" />
 
-    <TextView
-        android:id="@+id/tvStart"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Start: not set" />
-
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnSetEnd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Set End Point" />
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:text="Set End Point"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        app:cornerRadius="14dp"
+        app:backgroundTint="@color/accent"
+        app:layout_constraintTop_toBottomOf="@id/btnSetStart"
+        app:layout_constraintStart_toStartOf="@id/resultCard"
+        app:layout_constraintEnd_toEndOf="@id/resultCard"
+        android:layout_marginTop="14dp" />
 
-    <TextView
-        android:id="@+id/tvEnd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="End: not set" />
-
-    <TextView
-        android:id="@+id/tvDistance"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Distance: -- m" />
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
