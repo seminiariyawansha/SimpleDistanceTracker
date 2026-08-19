@@ -43,4 +43,5 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
     implementation("com.google.android.gms:play-services-location:21.3.0")
+    implementation("com.google.android.material:material:1.12.0")
 }
